@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+body {
+    background: url('logo.png');
+    background-repeat: no-repeat;
+    background-size: 40vw;
+    background-position: -20vw;
+    background-attachment: fixed;
+}

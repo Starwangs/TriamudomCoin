@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- <section>
+        <div class="container mt-5 mx-auto" style="display: flex; flex-direction: row;">
+            <% for( const block of chain ) { %>
+                <div class="jumbotron col col-lg-4 mr-3" id="<%= block.hash %>" style="word-wrap: break-word;">
+                    <h3 class="display-5">Block
+                        <%= block.index %>
+                            <% if (block.index === 0) { %>
+                                <small>(Genisis Block)</small>
+                                <% } %>
+                    </h3>
+                    <hr class="my-4">
+                    <p>Hash</p>
+                    <code style="color: rgb(245, 151, 167)"><%= block.hash %> </code><br><br>
+                    <p class="lead">Previous Hash</p>
+                    <code style="color: rgb(57, 178, 226)"><%= block.previousHash %> </code>
+                    <hr class="my-4">
+                    <p class="lead">Nonce</p>
+                    <code style="color: rgb(162, 231, 59)"><%= block.nonce %> </code>
+                    <hr class="my-4">
+                    <p class="lead">Timestamp</p>
+                    <code style="color: rgb(177, 16, 177)"><%= block.timestamp %> </code><br>
+                    <button type="button" class="btn btn-secondary" id="print" data-id="<%= block.hash %>">Secondary</button>
+                </div>
+                <% } %>
+        </div>
+    </section> -->
+    <section>
+        <div class="container mt-5 col col-lg-8">
+            <% for( const block of chain ) { %>
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="heading<%= block.index %> ">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse<%= block.index %> " aria-expanded="false" aria-controls="collapse<%= block.index %>">
+                                Block <%= block.index %> 
+                                        <% if (block.index === 0) { %>
+                                            <span> (Genisis Block)</span>
+                                            <% } %>
+                            </button>
+                            </h2>
+                        </div>
+                        <div id="collapse<%= block.index %>" class="collapse" aria-labelledby="heading<%= block.index %>" data-parent="#accordionExample">
+                            <div class="card-body mt-4 mb-4 ml-4 mr-4">
+                                <pre style="word-wrap: break-word;"><%= JSON.stringify(block, null, 4) %></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+
+
+        </div>
+    </section>
+    <section>
+        <div class="container mx-auto mb-5">
+            <pre id="printTransaction">
+                <!-- <% for( const block of chain ) { %>
+                    <% for( const trans of block.transactions ) { %>
+                        <%= JSON.stringify(trans, null, 4) %>
+                            <% } %>
+                                <% } %> -->
+            </pre>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script>
+        const Collection = document.querySelectorAll('#print')
+        const Chain = <%- JSON.stringify(chain)%>
+
+        for (const item of Collection) {
+            item.addEventListener('click', (e) => {
+                $(item).on('click', function() {
+                    const Hash = $(this).attr("data-id");
+                    const Block = getBlockFromHash(Hash)
+                    for (const trans of Block.transactions) {
+                        document.querySelector('#printTransaction').innerHTML += JSON.stringify(trans, null, 4)
+                    }
+                });
+            })
+        }
+
+        function getBlockFromHash(hash) {
+            for (const block of Chain) {
+                if (block.hash = hash) {
+                    return block
+                }
+            }
+
+            return {}
+        }
+
+        for (const block of Chain) {
+            for (const trans of block.transactions) {
+                // document.querySelector('#printTransaction').innerHTML += JSON.stringify(trans, null, 4)
+            }
+        }
+    </script>
+
+</body>
+
+</html>

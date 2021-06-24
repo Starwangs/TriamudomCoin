@@ -1,0 +1,10 @@
+.container {
+    margin-top: 2vh;
+    text-align: center;
+}
+
+.container .logo {
+    z-index: 5;
+    height: 30vh;
+    display: inline-block;
+}

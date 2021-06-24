@@ -1,0 +1,34 @@
+<nav>
+    <div class="nav-wrapper">
+        <a routerLink="/" class="brand-logo">  &nbsp;&nbsp; TriamudomCoin</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a routerLink="/new/transaction/pending" *ngIf="thereArePendingTransactions()">Pending transactions <span class="new badge">{{blockchain.pendingTransactions.length}}</span></a></li>
+            <li><a routerLink="/settings">Settings</a></li>
+            <li><a routerLink="/new/transaction">Create transaction</a></li>
+            <li><a routerLink="/create-wallet-address">Create wallet address</a></li>
+            <li><a routerLink="/create-debit">Create Debit Card</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- <nav class="nav-extended">
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">TriamudomCoin</a>
+    </div>
+    <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+            <li class="tab"><a routerLink="/new/transaction/pending" *ngIf="thereArePendingTransactions()">Pending transactions <span class="new badge">{{blockchain.pendingTransactions.length}}</span></a></li>
+            <li class="tab"><a routerLink="/settings">Settings</a></li>
+            <li class="tab"><a class="active" routerLink="/new/transaction">Create transaction</a></li>
+            <li class="tab"><a routerLink="/create-wallet-address">Create wallet address</a></li>
+        </ul>
+    </div>
+</nav> -->
+
+<router-outlet></router-outlet>
+
+<footer class="text-muted center-align" style="margin-top: 150px;">
+    <small>&copy; {{ getYear() }} TriamudomCoin from 943 student<br>
+    <!-- <a href="https://www.facebook.com/chaiyapat.intasem" target="_blank">เฟิร์ส ชัยภัทร</a> &nbsp;&nbsp;&nbsp; <a href="https://www.instagram.com/f.chaiyapat/?hl=th" target="_blank">f.chaiyapat</a> -->
+    <a href="https://i.ytimg.com/vi/M9w5NUlJFv8/hqdefault.jpg" target="_blank">ชัยภัทร ณิชา ปกรณ์ พัสกร อิสรีย์</a></small>
+</footer>

@@ -1,0 +1,98 @@
+<div class="container">
+
+    <img src="logo.png" class="logo" alt="">
+
+    <div class="row" style="display: inline-block;">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="user" type="text" class="validate" [(ngModel)]="username">
+                    <label for="user">Username</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" type="password" class="validate" [(ngModel)]="password">
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col 4">
+                    <div class="switch">
+                        <label>
+                          <input type="checkbox" id="check0" value="0">
+                          <span class="lever"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="input-field col 4">
+                    <div class="switch">
+                        <label>
+                          <input type="checkbox" id="check1" value="1">
+                          <span class="lever"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="input-field col 4">
+                    <div class="switch">
+                        <label>
+                          <input type="checkbox" id="check2" value="2">
+                          <span class="lever"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="input-field col 4">
+                    <div class="switch">
+                        <label>
+                          <input type="checkbox" id="check3" value="3">
+                          <span class="lever"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="input-field col 4">
+                    <div class="switch">
+                        <label>
+                          <input type="checkbox" id="check4" value="4">
+                          <span class="lever"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="input-field col 4">
+                    <div class="switch">
+                        <label>
+                          <input type="checkbox" id="check5" value="5">
+                          <span class="lever"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="input-field col 4">
+                    <div class="switch">
+                        <label>
+                          <input type="checkbox" id="check6" value="6">
+                          <span class="lever"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="input-field col 4">
+                    <div class="switch">
+                        <label>
+                          <input type="checkbox" id="check7" value="7">
+                          <span class="lever"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="input-field col 4">
+                    <div class="switch">
+                        <label>
+                          <input type="checkbox" id="check8" value="8">
+                          <span class="lever"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button (click)="login()" class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+              </button>
+        </form>
+    </div>
+</div>

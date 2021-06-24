@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>Create Wallet key</h1>
+    <p>Generate your new Wallet key that both Public and Private Key to make transaction to another prople. Automatically saved.</p>
+
+    <br>
+
+    <div class="form-group">
+        <label for="difficulty">Public Key</label>
+        <input type="text" class="form-control" id="publicKey" [(ngModel)]="newPublicKey" disabled>
+        <small id="difficultyHelp" class="form-text text-muted">
+          Public Key is your Wallet address to create transaction to another person or another person to you
+      </small>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+        <label for="miningReward">Private Key</label>
+        <input type="text" class="form-control" id="privateKey" [(ngModel)]="newPrivateKey" disabled>
+        <small id="miningRewardHelp" class="form-text text-muted">
+          Private Key is your Secret key to signing your Transaction and comfirm that transaction is valid ?
+      </small>
+    </div>
+
+</div>

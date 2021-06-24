@@ -1,0 +1,26 @@
+<div class="container">
+    <br>
+    <nav *ngIf="justAddedTx" style="border-radius: 3px;">
+        <div class="nav-wrapper">
+            <div class="col s12 center-align">
+                Transaction created successfully!
+            </div>
+        </div>
+    </nav>
+
+    <h1>Pending transactions</h1>
+    <p>These transactions are waiting to be included in the next block. Next block is created when you start the mining process.</p>
+
+    <app-transactions-table [transactions]="pendingTransactions">
+    </app-transactions-table>
+
+    <br>
+
+    <button class="btn btn-primary" *ngIf="pendingTransactions.length > 0 && miningInProgress === false" (click)="minePendingTransactions()">
+     	Start mining
+    </button>
+
+    <div *ngIf="miningInProgress === true">
+        Mining block.. Hang on...
+    </div>
+</div>

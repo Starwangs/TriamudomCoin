@@ -1,0 +1,19 @@
+<div class="container">
+    <h1>Wallet details</h1>
+
+    <p style="word-wrap:break-word;">
+        <strong>Address:</strong>
+        <br> <span style="color: rgb(255, 163, 179);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{walletAddress}}</span>
+    </p>
+
+    <p>
+        <strong>Balance:</strong>
+        <br> <code style="color: rgb(0, 118, 228);">&nbsp;&nbsp;{{ balance }}</code>
+    </p>
+
+    <hr>
+
+    <h1>Transactions</h1>
+    <p *ngIf="transactions.length === 0">This wallet has made no transactions (yet)</p>
+    <app-transactions-table [transactions]="transactions" *ngIf="transactions.length > 0"></app-transactions-table>
+</div>

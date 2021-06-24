@@ -1,0 +1,47 @@
+<p *ngIf="transactions.length === 0">This block has no transactions</p>
+
+<table *ngIf="transactions.length > 0">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">From To</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Timestamp</th>
+            <th scope="col">Valid?</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tx of transactions; index as index">
+            <td>{{index}}</td>
+            <td class="truncate" style="max-width: 300px;">
+
+                From:<a [routerLink]="['/wallet', tx.fromAddress]" *ngIf="tx.fromAddress !== null"> &nbsp;{{tx.fromAddress}}</a>
+
+                <span *ngIf="tx.fromAddress === null">From: &nbsp;<code style="color: pink;">System</code></span>
+
+                <span class="text-muted" *ngIf="blockchainService.addressIsFromCurrentUser(tx.fromAddress)">
+          <br><small>(That's yours!)</small>
+        </span>
+            </td>
+            <td class="truncate" style="max-width: 300px;">
+                To:<a [routerLink]="['/wallet', tx.toAddress]"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{tx.toAddress}}</a>
+
+                <span class="text-muted" *ngIf="blockchainService.addressIsFromCurrentUser(tx.toAddress)">
+            <br><small>(That's yours!)</small>
+          </span>
+            </td>
+            <td>
+                {{tx.amount}}
+                <span *ngIf="tx.fromAddress === null" class="text-muted"><br><small>(Block reward)</small></span>
+            </td>
+            <td>
+                {{tx.timestamp}}<br>
+                <span class="text-muted"><small>{{tx.timestamp |date:'MMM d, y, HH:mm'}}</small></span>
+            </td>
+            <td style="max-width: 40px;">
+                <span *ngIf="tx.isValid()">&nbsp;&nbsp;&nbsp;✓</span>
+                <span *ngIf="!tx.isValid()">&nbsp;&nbsp;&nbsp;✗</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
